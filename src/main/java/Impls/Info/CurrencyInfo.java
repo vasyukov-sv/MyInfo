@@ -14,7 +14,7 @@ public class CurrencyInfo extends BaseInfo implements Info {
 
     @Override
     public void process() {
-        System.out.println("Process CurrencyInfo");
+        System.out.println("Process CurrencyInfo2");
         this.getContent().setContentname(" new 63.59 56.55");
     }
 }
