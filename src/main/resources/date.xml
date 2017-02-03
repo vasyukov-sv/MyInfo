@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fastDateFormat" class="org.apache.commons.lang3.time.FastDateFormat"
+          factory-method="getInstance">
+        <constructor-arg value="dd.MM.yyyy"/>
+    </bean>
+
+    <bean id="date" class="java.util.Date"/>
+
+    <bean id="currentDate" factory-bean="fastDateFormat"
+          factory-method="format">
+        <constructor-arg ref="date"/>
+    </bean>
+
+    <bean id="currentDatePlus1" factory-bean="fastDateFormat"
+          factory-method="format">
+        <constructor-arg value="#{T(org.apache.commons.lang3.time.DateUtils).addDays(date,1)}"/>
+    </bean>
+
+    <bean id="currentDateMinus1" factory-bean="fastDateFormat"
+          factory-method="format">
+        <constructor-arg value="#{T(org.apache.commons.lang3.time.DateUtils).addDays(date,-1)}"/>
+    </bean>
+</beans>

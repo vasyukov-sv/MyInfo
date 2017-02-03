@@ -5,7 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true"
 >
-
     <bean id="worldtime" class="Impls.Info.WorldTimeInfo" parent="baseInfo"
           p:infoname="Мировое время"
           p:url="ntp2.stratum2.ru"
@@ -14,10 +13,10 @@
     />
 
     <bean id="currency" class="Impls.Info.CurrencyInfo" parent="baseInfo"
-          p:infoname="Валюты"
-          p:url="ntp2.stratum2.ru"
-          p:head="USD EUR"
-          p:content="63.59 56.55"
+          p:infoname="Курсы Валют"
+          p:url="http://www.cbr.ru/"
+          p:head="Курсы ЦБ РФ"
+          p:content=""
     />
 
     <bean id="baseInfo" abstract="true">

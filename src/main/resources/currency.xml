@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true"
+>
+
+    <import resource="date.xml"/>
+
+    <bean id="cbCourse" class="Impls.CB.CBcourse">
+        <property name="courseList">
+            <list>
+                <bean id="usdCcourse" class="Impls.CB.Course"
+                      p:code="USD"
+                      p:url="http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=#{currentDateMinus1}&amp;date_req2=#{currentDatePlus1}&amp;VAL_NM_RQ=R01235"
+                />
+
+                <bean id="eurCourse" class="Impls.CB.Course"
+                      p:code="EUR"
+                      p:url="http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=#{currentDateMinus1}&amp;date_req2=#{currentDatePlus1}&amp;VAL_NM_RQ=R01239"
+                />
+            </list>
+        </property>
+    </bean>
+</beans>

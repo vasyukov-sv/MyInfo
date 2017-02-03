@@ -36,7 +36,6 @@ public class WorldTimeInfo extends BaseInfo implements Info {
 
     @Override
     public void process() {
-        System.out.println("process WorldTimeInfo");
         NTPUDPClient client = new NTPUDPClient();
         String url = this.getUrl();
         client.setDefaultTimeout(500);

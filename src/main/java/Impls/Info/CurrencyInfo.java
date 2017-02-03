@@ -1,11 +1,15 @@
 package Impls.Info;
 
+import Impls.CB.CBcourse;
 import Impls.Content.BaseContent;
 import Impls.Head.BaseHead;
 import Interface.Info;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by sbt-vasyukov-sv on 26.01.2017.
+ * Created by sbt-vasyukov-sv on 26.01.2017 11:20.
+ * Process Currence output.
  */
 public class CurrencyInfo extends BaseInfo implements Info {
     public CurrencyInfo(BaseHead head, BaseContent content) {
@@ -14,7 +18,9 @@ public class CurrencyInfo extends BaseInfo implements Info {
 
     @Override
     public void process() {
-        System.out.println("Process CurrencyInfo");
-        this.getContent().setContentname(" new 63.59 56.55");
+        ApplicationContext context = new ClassPathXmlApplicationContext("currency.xml");
+        CBcourse cbcourse = (CBcourse) context.getBean("cbCourse");
+        String courseString = cbcourse.get();
+        getContent().setContentname(courseString);
     }
 }
