@@ -22,6 +22,6 @@
 
     <bean id="currentDateMinus1" factory-bean="fastDateFormat"
           factory-method="format">
-        <constructor-arg value="#{T(org.apache.commons.lang3.time.DateUtils).addDays(date,-1)}"/>
+        <constructor-arg value="#{T(org.apache.commons.lang3.time.DateUtils).addDays(date,-2)}"/>
     </bean>
 </beans>
